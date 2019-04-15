@@ -8,24 +8,25 @@ public class Person {
   private String name;
   private int age;
 
+  //带参数构造方法
   public Person(String name, int age) {
     this.name = name;
     this.age = age;
   }
-
+  //构造方法
   public Person() {
     this.name = "unname";
     this.age = 200;
   }
-
+  //返回值是String类型的方法
   public String getName() {
     return this.name;
   }
-
+  //返回值是空void，参数是name的方法
   public void setName(String name) {
     this.name = name.trim();
   }
-
+  //返回值是int，参数是空的方法
   public int getAge() {
     return this.age;
   }
@@ -75,7 +76,7 @@ public class Main {
     Person ming = new Person();
     ming.setName("小明");
     System.out.println(ming.getName());
-    ming.setName("杰克马", "傻逼");
+    ming.setName("杰克马", "idiot");
     System.out.println(ming.getName());
   }
 
@@ -84,5 +85,53 @@ public class Main {
 
 ```
 
+# 继承
 
-#  继承
+```java
+//  Person.java
+public class Person {
+  protected String name;
+
+  public Person(String name) {
+    this.name = name;
+  }
+
+  public void run() {
+    System.out.println(name + " is running!");
+  }
+}
+
+//Student.java
+//  集成自Person
+public class Student extends Person {
+  public Student(String name) {
+    super(name);
+  }
+
+  private int score;
+
+  public int getScore() {
+    return score;
+  }
+
+  public void setScore(int score) {
+    this.score = score;
+  }
+
+  public void hello() {
+    System.out.println("hello " + this.name);
+  }
+}
+
+//Main.java
+public class Main {
+  public static void main(String[] args) {
+    Person p = new Person("yang000");
+    Student s = new Student("yang001");
+    p.run();  //yang000 is running!
+    s.run();  //yang001 is running!
+    s.hello();  //hello yang001
+  }
+}
+
+```
