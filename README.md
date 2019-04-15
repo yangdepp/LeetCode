@@ -1,4 +1,4 @@
-# 用 java 和 javascript 刷 leetcode 算法题
+# 用 java 和 javascript 刷 leetcode
 
 ## 一阶段：复习 java 基础语法
 
@@ -75,6 +75,116 @@ public class FloatOps {
     double d2 = 1.2 + 24 / 5;
     System.out.println(d1); // 6.0
     System.out.println(d2); // 5.2
+  }
+}
+```
+
+5. 数组类型
+
+```java
+
+public class Main {
+  public static void main(String[] args) {
+    int[] ns1 = new int[5]; // { 0, 0, 0, 0, 0 }
+    int[] ns2 = new int[] { 1, 3, 5, 7, 9 };
+    int[] ns3 = { 2, 4, 6, 8, 10 };
+    int[] ns4 = ns3;
+    // 初始化时直接指定数组的元素
+    int[] ns5 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8 };
+    // 或者直接简写
+    int[] ns6 = { 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+
+    // 现在ns3和ns4指向同一个数组:
+    System.out.println("ns3[1]: " + ns3[1]);  //4
+    ns3[1] = 999;
+    System.out.println("ns4[1]: " + ns4[1]);  //999
+    // 把ns3指向一个新数组:
+    ns3 = new int[] { 1, 2, 3 };
+    ns3[1] = 888;
+    System.out.println("ns4[1]: " + ns4[1]);  //999
+    // String数组:
+    String[] strs = { "Abc", "Xyz", "123" };
+    strs[1] = "Hello";
+		System.out.println(ns5.length);  //8
+		System.out.println(ns6[0]);  //9
+  }
+}
+```
+
+6. 输入和输出
+
+```java
+import java.util.Scanner
+public class Input{
+  public class static void main(String[] args) {
+    Scanner sanner = new Scanner(System.in);
+    System.out.print("请输入您的名字:");
+    String name = scanner.nextLine();
+    System.out.print("请输入你的年龄:");
+    int age = scanner.nextInt(System.in);
+    System.out.println("您的名字是" + name + ",您的年龄是" + age);
+  }
+}
+
+```
+
+7. if...else switch
+
+```java
+//略...
+```
+
+8. for 循环
+
+```java
+
+public class Main {
+  public static void main(String[] args) {
+    int[] ns = { 1, 2, 3, 4, 5, 6, 7 };
+    for (int i = 0; i < ns.length; i++) {
+      if(ns[i] % 2 == 0){
+        continue;
+      }else if(ns[i] === 5){
+        break;
+      }
+      System.out.println(ns[i]);  // 1,3
+    }
+    // for each循环
+    for(int n : ns) {
+      System.out.println(n);
+    }
+    // 可以用Arrays.toString()打印数组元素
+    System.out.println(Arrays.toString(ns));
+  }
+}
+```
+
+9. 遍历数组
+
+```java
+
+public class Main {
+  public static void main(String[] args) {
+    int[] ns = { 1, 20, 3, 14, 5, 6, 9 };
+
+    // 可以用Arrays.toString()打印数组元素
+    System.out.println(Arrays.toString(ns));
+
+    //  冒泡排序
+/*  for(int i = 0; i < ns.length; i++){
+      for(int j = i + 1; j < ns.length; j++){
+        if(ns[i] > ns[j]){
+          int temp = ns[j];
+          ns[j] = ns[i];
+          ns[i] = temp;
+        }
+      }
+    }
+    System.out.println(Arrays.toString(ns)); */
+
+    //  也可以用Arrays.sort方法
+    Arrays.sort(ns);
+    System.out.println(Arrays.toString(ns));
   }
 }
 ```
