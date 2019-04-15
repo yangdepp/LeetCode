@@ -135,3 +135,45 @@ public class Main {
 }
 
 ```
+
+# 多态
+
+```java
+//Person.java
+public class Person {
+  protected String name;
+  public Person(String name) {
+    this.name = name;
+  }
+  public void run() {
+    System.out.println(this.name + " is running!");
+  }
+}
+
+//Student.java
+public class Student extends Person {
+  public Student(String name) {
+    super(name);
+  }
+
+  @Override
+  public void run() {
+    System.out.println("hello," + this.name);
+  }
+}
+
+
+//Main.java
+public class Main {
+  public static void main(String[] args) {
+    Person p = new Person("Xiao Ming");
+    //  声明类型是Person，实际类型是Student，调用的是Student实例的run方法
+    Person s = new Student("Xiao Hong");
+    p.run();  //Xiao Ming is running!
+    s.run();  //hello,Xiao Hong
+  }
+}
+
+//  实例对象的方法调用总是对应实际类型
+//  java实例方法调用是基于运行时实际类型的动态调用
+```
