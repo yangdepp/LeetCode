@@ -12,49 +12,72 @@
  * Testcase Example:  '123'
  *
  * 给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
- * 
+ *
  * 示例 1:
- * 
+ *
  * 输入: 123
  * 输出: 321
- * 
- * 
+ *
+ *
  * 示例 2:
- * 
+ *
  * 输入: -123
  * 输出: -321
- * 
- * 
+ *
+ *
  * 示例 3:
- * 
+ *
  * 输入: 120
  * 输出: 21
- * 
- * 
+ *
+ *
  * 注意:
- * 
+ *
  * 假设我们的环境只能存储得下 32 位的有符号整数，则其数值范围为 [−2^31,  2^31 − 1]。请根据这个假设，如果反转后整数溢出那么就返回
  * 0。
- * 
+ *
  */
 /**
  * @param {number} x
  * @return {number}
  */
-var reverse = function (x) {
-
+var reverse = function(x) {
   //  answer1这个if...else有点丑
-  if (x < 0) {
-    x = x.toString().split('-')[1];
-    x = '-' + [...x].reverse().join('')
-    x = +x
-  } else {
-    x = x.toString()
-    x = +[...x].reverse().join('')
-  }
-  if (x >= Math.pow(2, 31) - 1 || x <= Math.pow(-2, 31) + 1) {
-    return 0
-  }
-  return x
-};
+  // if (x < 0) {
+  //   x = x.toString().split('-')[1];
+  //   x = '-' + [...x].reverse().join('')
+  //   x = +x
+  // } else {
+  //   x = x.toString()
+  //   x = +[...x].reverse().join('')
+  // }
+  // if (x >= Math.pow(2, 31) - 1 || x <= Math.pow(-2, 31) + 1) {
+  //   return 0
+  // }
+  // return x
 
+  // ---------------------------------------------
+  // answer2
+  // -120
+  var isNegative = x < 0 ? true : false,
+    divider = 10,
+    result = 0,
+    reminder;
+
+  if (isNegative) {
+    x = x * -1;   //120
+  }
+
+  while (x !== 0) {
+    reminder = x % 10;  //2
+    result = result * 10 + reminder;  //2
+
+    x = Math.floor(x / 10);  // 1
+  }
+
+  if (result >= 2147483648) {
+    return 0;
+  }
+
+  return isNegative ? result * -1 : result;
+};
