@@ -45,6 +45,7 @@
 var isPalindrome = function (x) {
 
   //  这个也是有点丑，我就要转换成字符串
+  //  后续优化
   if (x < 0) {
     return false
   } else if (x === 0) {
