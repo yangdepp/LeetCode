@@ -59,24 +59,19 @@ var reverse = function(x) {
   // ---------------------------------------------
   // answer2
   // -120
-  var isNegative = x < 0 ? true : false,
-    divider = 10,
-    result = 0,
-    reminder;
 
-  if (isNegative) {
-    x = x * -1;   //120
-  }
+  var isNegative = x < 0,
+    result = 0;
 
+  x = isNegative ? x * -1 : x;
   while (x !== 0) {
-    reminder = x % 10;  //2
-    result = result * 10 + reminder;  //2
+    result = result * 10 + (x % 10); //0,2,21
 
-    x = Math.floor(x / 10);  // 1
-  }
+    x = Math.floor(x / 10); // 12,1,0
 
-  if (result >= 2147483648) {
-    return 0;
+    if (result >= 2147483648) {
+      return 0;
+    }
   }
 
   return isNegative ? result * -1 : result;
