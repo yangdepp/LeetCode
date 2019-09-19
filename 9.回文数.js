@@ -54,6 +54,9 @@ var isPalindrome = function(x) {
   //   tempx = +tempX.split('').reverse().join('')
   //   return tempx === x
   // }
+
+  // -----------------------------------------------
+  // answer2
   if (x < 0) {
     return false;
   } else if (x === 0) {
