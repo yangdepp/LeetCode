@@ -1,5 +1,3 @@
-import java.util.Deque;
-
 /*
  * @lc app=leetcode.cn id=20 lang=java
  *
